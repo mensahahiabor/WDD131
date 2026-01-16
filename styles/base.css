@@ -1,0 +1,230 @@
+/* ===================================
+   CSS VARIABLES - Color Schema
+   =================================== */
+:root {
+    --primary-color: #1e5f74;
+    --secondary-color: #f39c6b;
+    --accent-color: #2a9d8f;
+    --dark-text: #2d3748;
+    --light-text: #f7fafc;
+    --background: #ffffff;
+    --card-background: #f8f9fa;
+    --border-color: #e2e8f0;
+}
+
+/* ===================================
+   RESET & BASE STYLES
+   =================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--dark-text);
+    background-color: var(--background);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===================================
+   HEADER STYLES
+   =================================== */
+header {
+    background: linear-gradient(135deg, var(--primary-color), #264653);
+    color: var(--light-text);
+    padding: 2rem 1rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Span displays as block for easy centering */
+#course-title {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+}
+
+/* ===================================
+   NAVIGATION - CSS FLEXBOX
+   =================================== */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--light-text);
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* Well-designed hover effect */
+nav a:hover {
+    background-color: var(--secondary-color);
+    color: var(--dark-text);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+nav a:active {
+    transform: translateY(0);
+}
+
+/* ===================================
+   MAIN CONTENT - Limited Width & Centered
+   =================================== */
+main {
+    max-width: 1200px;
+    width: 100%;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+    flex: 1;
+}
+
+/* ===================================
+   HEADING STYLES
+   =================================== */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* ===================================
+   CARD LAYOUT - CSS GRID
+   =================================== */
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+/* h1 spans full width of grid */
+main h1 {
+    grid-column: 1 / -1;
+}
+
+.card {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.card img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    display: block;
+    margin: 1.5rem auto;
+    border-radius: 8px;
+    border: 3px solid var(--border-color);
+}
+
+.card p {
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.card ul {
+    margin-left: 2rem;
+    margin-top: 1rem;
+}
+
+.card li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+/* ===================================
+   FOOTER STYLES
+   =================================== */
+footer {
+    background: linear-gradient(135deg, #264653, var(--primary-color));
+    color: var(--light-text);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: auto;
+}
+
+footer p {
+    margin: 0.5rem 0;
+}
+
+#lastModified {
+    font-size: 0.9rem;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* ===================================
+   RESPONSIVE DESIGN - TABLET & UP
+   =================================== */
+@media screen and (min-width: 768px) {
+    #course-title {
+        font-size: 3rem;
+    }
+    
+    /* Two-column grid layout for cards */
+    main {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+    
+    /* h1 still spans both columns */
+    main h1 {
+        grid-column: 1 / -1;
+    }
+}
+
+/* ===================================
+   RESPONSIVE DESIGN - DESKTOP
+   =================================== */
+@media screen and (min-width: 1024px) {
+    nav {
+        gap: 1.25rem;
+    }
+    
+    nav a {
+        padding: 0.85rem 2rem;
+    }
+    
+    h1 {
+        font-size: 3.5rem;
+    }
+    
+    .card {
+        padding: 2.5rem;
+    }
+}
